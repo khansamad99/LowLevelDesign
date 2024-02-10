@@ -106,5 +106,3 @@
 
 Please find the UML Diagram linked [here](#).
 
-(Note: Replace the `#` with the actual link to your UML diagram.)
-

@@ -77,17 +77,19 @@ Cricbuzz aims to provide live updates of cricket matches, including detailed sco
 - Team `battingTeam`
 - Team `bowlingTeam`
 - List<Over> `overs`
+- startInnings()
 
 ### Over
 
 - int `overNumber`
 - List<Ball> `balls`
+- startOver()
 
 ### Ball
 
 - int `ballNumber`
-- String `type` (Normal, Wide, No Ball)
-- RunType `runType`
+- String `type` (Normal, Wide, No Ball) ENUM
+- RunType `runType` ENUM
 - Player `playedBy`
 - Player `bowledBy`
 
@@ -123,8 +125,8 @@ An interface to update scorecards.
 
 #### Implementations:
 
-- **BattingScorecardUpdater**
-- **BowlingScorecardUpdater**
+- **BattingScorecardUpdater** -> update(Ball)
+- **BowlingScorecardUpdater** -> update(Ball)
 
 These observers are notified after every ball to update player statistics accordingly, ensuring that the scorecards reflect the most current match state.
 

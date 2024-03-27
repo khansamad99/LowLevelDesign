@@ -1,4 +1,4 @@
-```md
+
 # SOLID Principles in Low-Level Design (LLD)
 
 SOLID principles are a set of fundamental guidelines for designing software systems that are maintainable, extensible, and flexible. These principles were introduced by Robert C. Martin (Uncle Bob) and have become widely adopted in the object-oriented programming community. In this Markdown file, we will explore each principle, provide real-life examples, and discuss how they contribute to better low-level design.

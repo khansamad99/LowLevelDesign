@@ -155,8 +155,12 @@ class Bicycle implements Bike {
     }
 }
 
-// This implementation violates the LSP because a Bicycle object cannot be substituted for a Bike object without affecting the correctness of the program. If we pass a Bicycle instance to a method that expects a Bike and calls the turnOnEngine() method, it will throw an AssertionError.
 ```
+
+// This implementation violates the LSP because a Bicycle object cannot be 
+// substituted for a Bike object without affecting the correctness of the program. 
+// If we pass a Bicycle instance to a method that expects a Bike and calls the 
+// turnOnEngine() method, it will throw an AssertionError.
 
 To follow the LSP, we should ensure that derived classes maintain the behavior and invariants defined by their base classes. One solution is to create an abstract base class `MotorizedVehicle` and derive `Car` from it, keeping `Bicycle` as a separate class that does not inherit from `MotorizedVehicle`.
 

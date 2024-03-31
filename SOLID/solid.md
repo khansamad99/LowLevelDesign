@@ -98,6 +98,10 @@ By following the OCP, we can extend the system's functionality without modifying
 
 The Liskov Substitution Principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
 
+If Class B is a subtype of Class A, then we should be able to replace object of A with B without breaking the behaviour of program
+
+Subclass should extent the capablity of parent class not narrow it down.
+
 **Real-life Example**: Consider a `Vehicle` base class and two derived classes: `Car` and `Bicycle`. If we have a method that takes a `Vehicle` object as input and performs operations based on the assumption that all vehicles have an engine, this method would violate the LSP because a `Bicycle` does not have an engine.
 
 ```java
@@ -119,6 +123,39 @@ class Bicycle extends Vehicle {
 void startVehicle(Vehicle vehicle) {
     vehicle.engine.start(); // This will fail for Bicycle objects
 }
+
+// This also violated LSP
+interface Bike {
+    void turnOnEngine();
+    void accelerate();
+}
+
+class MotorCycle implements Bike {
+    boolean isEngineOn;
+    int speed;
+
+    public void turnOnEngine() {
+        // turn on the engine!
+        isEngineOn = true;
+    }
+
+    public void accelerate() {
+        // increase the speed
+        speed = speed + 10;
+    }
+}
+
+class Bicycle implements Bike {
+    public void turnOnEngine() {
+        throw new AssertionError("There is no engine");
+    }
+
+    public void accelerate() {
+        // do something
+    }
+}
+
+// This implementation violates the LSP because a Bicycle object cannot be substituted for a Bike object without affecting the correctness of the program. If we pass a Bicycle instance to a method that expects a Bike and calls the turnOnEngine() method, it will throw an AssertionError.
 ```
 
 To follow the LSP, we should ensure that derived classes maintain the behavior and invariants defined by their base classes. One solution is to create an abstract base class `MotorizedVehicle` and derive `Car` from it, keeping `Bicycle` as a separate class that does not inherit from `MotorizedVehicle`.

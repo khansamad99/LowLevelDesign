@@ -248,6 +248,8 @@ By adhering to the ISP, we create smaller and more cohesive interfaces, reducing
 ## 5. Dependency Inversion Principle (DIP)
 The Dependency Inversion Principle states that high-level modules should not depend on low-level modules; both should depend on abstractions. Additionally, abstractions should not depend on details, but details should depend on abstractions.
 
+Classes should depend on Interfaces rather than concrete classes
+
 **Real-life Example**:
 Imagine you own a car and need to take it to a repair shop for servicing. In this scenario, the car (high-level module) depends on the repair shop (low-level module) to perform the necessary repairs and maintenance.
 
